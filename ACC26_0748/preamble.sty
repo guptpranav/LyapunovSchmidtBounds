@@ -1,0 +1,38 @@
+\usepackage[noadjust]{cite}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{textcomp, dsfont, accents}
+\usepackage{graphicx, svg, subcaption}
+\usepackage{algorithmic, derivative}
+\usepackage[font=small]{caption}
+\usepackage[dvipsnames]{xcolor}
+
+\let \labelindent \relax
+\usepackage{enumitem}
+\usepackage{thmtools}
+\usepackage{cancel}
+
+\usepackage[
+    colorlinks=true,
+    raiselinks=true,
+    linkcolor=blue,
+    citecolor=MidnightBlue,
+    urlcolor=ForestGreen,
+    pdfauthor={Anonymous},
+    pdftitle={None},
+    pdfkeywords={none},
+    pdfsubject={scribbles},
+    plainpages=false
+]{hyperref}
+
+\usepackage{cleveref}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{theorem}{\parindent=0pt}
+\AtBeginEnvironment{lemma}{\parindent=0pt}
+\AtBeginEnvironment{corollary}{\parindent=0pt}
+
+
+\pdfminorversion=4
+\pdfobjcompresslevel=0
+\overrideIEEEmargins                                      % Needed to meet printer requirements.
+\IEEEoverridecommandlockouts                              % This command is only needed if you want to use the \thanks command

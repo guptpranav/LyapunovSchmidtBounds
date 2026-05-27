@@ -1,0 +1,86 @@
+\documentclass[letterpaper, 10 pt, conference, dvipsnames]{ieeeconf}
+\pdfminorversion=4
+\pdfobjcompresslevel=0
+\IEEEoverridecommandlockouts                            
+\overrideIEEEmargins
+
+\title{\LARGE \bf Estimates on the domain of validity for Lyapunov-Schmidt reduction}
+
+\author{Pranav~Gupta,
+        Anastasia~Bizyaeva,
+        and~Ravi~Banavar
+    % \thanks{\(^1\) Mechanical Engineering, Indian Institute of Technology Bombay, Mumbai, 400076, Maharashtra, India {\tt\small guptapranav@iitb.ac.in}}
+    % \thanks{\(^{2}\) AI Institute in Dynamic Systems and Department of Mechanical Engineering, University of Washington, Seattle, WA 98195, USA {\tt\small anabiz@uw.edu}}
+    % \thanks{\(^{3}\) Systems and Control Engineering, Indian Institute of Technology Bombay, Mumbai, 400076, Maharashtra, India {\tt\small banavar@iitb.ac.in}}
+}
+\usepackage{mymacros}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+    Lyapunov-Schmidt reduction is a dimensionality reduction technique in nonlinear systems analysis that is commonly utilised in the study of bifurcation problems in high-dimensional systems. The method is a systematic procedure for reducing the dimensionality of systems of algebraic equations that have singular points, preserving essential features of their solution sets. In this article, we establish estimates for the region of validity of the reduction by applying bounds on the implicit function theorem derived in \cite{jindal2023imft}. We then apply these bounds to an illustrative example of a two-dimensional system with a pitchfork bifurcation.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Index of Comments from Reviewers}
+\begin{enumerate}
+    \item 16963:
+    \begin{enumerate}
+        \item Check the formatting of Fig. 2.1 as there is a overlap of data from left figure to the right. \reply{unclear}
+        \item Author writes: "However, for many engineering applications it is also important to establish explicit bounds of validity for the analysis, for example in order to quantify robustness of the established features to parameter uncertainty and state perturbation." The authors can provide one more example justifying the validity of the analysis; since the authors mentioned there are "many" applications. \reply{will need help @AB}
+    \end{enumerate}
+    \item 23649:
+    \begin{enumerate}
+        \item There are inconsistencies regarding how the ImFT is mentioned (sometimes in all lowercase, such as in the abstract and at the beginning of Subsection II.B). \reply{mentioned inconsistencies found in abstract and beginning of II.B have been capitalised to "Implicit Function Theorem" in the revised version}
+        \item In Theorem 2.1, please use maplet arrows (\mapsto) when defining a function as an assignment of values, $(x,y)\mapsto f(x,y)$. \reply{suggested edit has been made in the revised version}
+        \item Regarding formality, some functions (such as tanh in Subsection IV.A) are simultaneously evaluated in scalars (first line) and vectors (second line), making the notation ill-defined. \reply{$\tanh\left(\begin{bmatrix}0&\lambda\\\lambda&0\end{bmatrix}\mathbf{x}\right)$ has been replaced with $\begin{bmatrix}\tanh(\lambda x_2)\\\tanh(\lambda x_1)\end{bmatrix}$ in the revised version}
+        \item Finally, I feel that Fig. 3.1 is either too abstract or ambiguous to clarify the geometrical interpretation of Theorem 3.2. Perhaps it could be further detailed or eliminated. \reply{i have some ideas, but need your opinions}
+    \end{enumerate}
+    \item 23651: 
+    \begin{enumerate}
+        \item For the example in Section IV-B, in step 2) how was the matrix P computed? It is not completely clear how this is done. From what I can understand, P is in range(J). Is P unique? If not, how does this choice of P affect the computation of the bounds? \reply{clarification on the non-influence of the choice of $P$ has been included in Section III, top of the right side in the revised version, and method for its computation in section IV-B has been included alongside its computation}
+        \item In Section IV-C, the authors mention that since the mapping $\varphi$ is not known, the derivatives are computed for the reduced system to find a series expansion. Can the authors expand on this part to clarify how they do this? This is not clear from the paper. \reply{reference for this can be included @AB}
+        \item Since the objective is to apply this method to high-dimensional systems, it would be useful to understand the potential difficulties in applying this procedure to such systems in terms of computational cost. \reply{can we fit something in within the 6 page limit? @AB}
+    \end{enumerate}
+    \item 23655: 
+    \begin{enumerate}
+        \item Section 4 shows that the bounds derived in Section 3 are sharp (in the sense that there exists at least one problem for which they are exact). I suggest to already mention this in Section 3, and highlight is as a property of your work. \reply{a cautious highlight has been appended to section III in the revised version}
+        \item My only trouble reading the manuscript was that both Sections 3 and 4 respectively ended in a paragraph essentially saying that from this point onwards one now continues as per usual (Section 3: “For the sake of completion [...]“, Section 4.C). While I see the importance to place the work within the standard framework, the two paragraphs draw the reader's attention away from the results. I wonder if it would be possible to rearrange the sections, especially Section 3, such that they culminate in the new, not the usual. \reply{i have an idea but will need your inputs}
+        \item I found the following typos:
+        \begin{itemize}
+            \item Theorem 2: “be be open subsets” \reply{fixed}
+            \item After (2.9): “and $f \in ...$” but referring to $\Phi$ in (2.9) and paragraph after (2.10) again refers to $f$. \reply{mentioned typos have been fixed}
+            \item Paragraph after (2.10) states $g \in \mathcal{C}^2$ but $\Phi \in \mathcal{C}^2$ was not assumed (which would be needed to get the exponent 2 from the ImFT) \reply{$f\in\mathcal{C}^{\nu}$ has been replaced with $\Phi$ is at least $\mathcal{C}^2$, fixing above typo and correctly including the assumption in the revised version}
+        \end{itemize}
+    \end{enumerate}
+    \item 30271:
+    \begin{enumerate}
+        \item In the abstract, the authors use a reference to [1]. It is generally better not to include references in the abstract, for several reasons. \reply{replaced citation with Jindal et al. (2023) in the revised version}
+        \item Starting from page 2, the authors use $\mathcal{O}(x)$ to denote a neighborhood of x. This is quite unusual, and somewhat clashes with the usual big-O notation used for complexity analysis. I strongly recommend switching to $\mathcal{N}(x)$ instead, which is also more common in topology. \reply{all $\mathcal{O}(\cdot)$ have been replaced with $\mathcal{N}(\cdot)$ in the revised version}
+        \item Theorem 2.1 can be slightly improved in two places:
+        \begin{itemize} 
+            \item Consider $C^\nu\to$ Consider a $C^\nu$
+            \item where $\nu>1$. Consider $\to$ where $\nu>1$, and consider
+        \end{itemize}
+        \reply{suggested improvements have been included in the revised version}
+        \item Arguably, Fig. 2.1 is not needed. If the authors happen to exceed the 6 page limit due to further corrections, this figure could be deleted.
+        \item In the paragraph following (2.10), there is the sentence 'the parameter vector $\lambda$ uniquely parametrizes'. However, $\lambda$ is not a vector. \reply{parameter $\lambda$ could be a vector, has been clarified in the revised version in the beginning of Section III.C}
+        \item In equation (3.11), isn't there a $W^\top$ missing, in the second term? \reply{unclear}
+        \item There are some instances where the authors write 'Lyapunov Schmidt' instead of 'Lyapunov-Schmidt', for instance after the proof of Theorem 3.2. \reply{instances found right above Section III and in the proof above Section IV, these have been fixed in the revised version}
+        \item Right before Section IV, there is a typo: we can express $\phi$ it in terms -> we can express $\phi$ in terms. \reply{mentioned typo has been fixed in the revised version}
+        \item I was a bit unsure why the authors chose that specific example in Section IV, perhaps a bit more background as to why this system is important could be added? Also, could this computation be automated? If so, can you estimate the runtime for higher-dimensional systems? I realize that might be a bit out of scope, but such information would certainly be helpful in practice, and help the article be more impactful. \reply{will need help @AB}
+    \end{enumerate}
+\end{enumerate}
+
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,ref}
+
+\end{document}

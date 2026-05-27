@@ -1,0 +1,55 @@
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+ 
+\usepackage{preamble}
+\usepackage{macros}
+
+\title{\bf Bounds of Validity for Bifurcations of Equilibria in a Class of Networked Dynamical Systems}
+
+\author{
+    Pranav~Gupta,
+    Ravi~Banavar,
+    and~Anastasia~Bizyaeva
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+    Local bifurcation analysis plays a central role in understanding qualitative transitions in networked nonlinear dynamical systems, including dynamic neural network and opinion dynamics models. In this article we establish explicit bounds of validity for the classification of bifurcation diagrams in two classes of continuous-time networked dynamical systems, analogous in structure to the Hopfield and the Firing Rate dynamic neural network models. Our approach leverages recent advances in computing the bounds for the validity of \LSR{}, a reduction method widely employed in nonlinear systems analysis. Using these bounds we rigorously characterize neighborhoods around bifurcation points where predictions from reduced-order models remain reliable. We further demonstrate how these bounds can be applied to an illustrative family of nonlinear opinion dynamics on \(k-\)regular graphs, which emerges as a special case of the general framework. These results provide new analytical tools for quantifying the robustness of bifurcation phenomena in dynamics over networked systems and highlight the interplay between network structure and nonlinear dynamical behavior.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Review ID 6523}
+
+\begin{enumerate}
+    \item While the bounds are ``computable'', a brief discussion of the practical challenges in computing \(\Lpr\) and \(\Lpp\) for large-scale, non-regular networks would be valuable. \pranav{beyond scope of ACC paper (we are already past 6 page limit), consider for SCL paper}
+    \item The paper could briefly clarify what is meant by the ``reduced-order model'' in the context of LS reduction. It is not a reduced-state model in the typical control-theoretic sense but rather the set of bifurcation equations on the kernel. A one-sentence explanation would prevent potential misunderstanding. \pranav{all instances of ``reduced-order model'' replaced with ``reduced-order bifurcation equations'' and one-liner explanation added in introduction (page 1, right column)}
+    \item In the proof of Lemma 3.2, the reference [21, Theorem 3.3] is used. For improved readability, stating the key property (that the singular values of the inverse are the reciprocals of the original singular values) explicitly in the text would be helpful. \pranav{comment no longer applicable after fixing \(W/\Vbar\) typo that eliminated need to use mentioned result}
+    \item The motivation is clear, but explicitly mentioning the specific challenge of not knowing "how local is local" when using LS reduction could further sharpen the introduction. \pranav{added a one-liner explicitly stating this challenge in the introduction (page 1, top of right column)}
+    \item A potential future direction, hinted at in the discussion, would be to analyze how these bounds behave for other graph families (e.g., Erdős-Rényi, small-world). \pranav{no current modification to draft or commitment in this regard}
+\end{enumerate}
+
+\section{Review ID 6531}
+
+\begin{enumerate}
+    \item The last two paragraphs of the introduction are repeating each other, and it is suggested to merge them into one paragraph. \pranav{fixed on 1st page (middle of right column)}
+    \item Right above equation (4a), there should be a space in 'quantities.First'. \pranav{trivial fix}
+    \item Third line of Section III, 'Proposition Proposition 2.3.' \pranav{trivial fix}
+    \item I am not clear why Theorems 4.3 and 4.6 are called 'Bounds', as I was expecting to see an inequality in the theorem that will bound certain quantities, like Theorem 5.1. These Theorems only show the existence of a smooth implicit map, and it is not clear why these Theorems will be 'bounds' of bifurcation. The inequalities in equations (16) and (23) sound like the condition instead of the conclusion of these Theorems. \pranav{removed Theorem names, added verbose prefixing statement: page 4 (middle of right column) and page 5 (bottom of left column)}
+    \item Reference formats are suggested to be improved. For example, Ref. [18]'s title: 'lyapunov-schmidt' \(\to\) 'Lyapunov-Schmidt'. \pranav{\texttt{bibtex} by design converts all references to title case, added extra braces in \texttt{.bib} file to override and maintain capitalisation from \texttt{.bib} file: fixed capitalisation of L'ure in \cite{tang2017finite,liu2018bipartite,miranda2018analysis} and Lyapunov--Schmidt in \cite{gupta2024estimates}}
+    \item The application example in Section V is on supercritical pitchfork bifurcations. It is also suggested to clarify the applicable regime of the proposed bounds on bifurcation. For example, does this apply to both pitchfork and Hopf bifurcation, and whether it works for both supercritical and subcritical bifurcation? How about the global bifurcations, like homoclinic or heteroclinic bifurcations? Some comments at the end of Section VI might be helpful. \pranav{should I add a comment about current results only applying to steady-state bifurcations (0 eigenvalue) and not to Hopf or global bifurcations (conjugate imaginary eigenvalues)?}
+    \item At the bottom of page 7 (left column), there is a typo 'both terms both terms lie in...'. Moreover, 'we compute the expression for defined in (22)....', this sentence seems to miss something after 'for'. On top of Page 7, right column, 'we can say that that' \pranav{trivial fix}
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{ieeetr}
+\bibliography{ref}
+
+\end{document}
