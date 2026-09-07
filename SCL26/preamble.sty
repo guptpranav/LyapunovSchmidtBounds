@@ -1,0 +1,61 @@
+\usepackage{mathtools, physics, derivative, nicematrix}
+\usepackage{amsmath, amssymb, amsfonts, amsthm}
+\usepackage{graphicx, tikz, xcolor}
+\usepackage[font=small]{caption}
+\usepackage{microtype}
+\usepackage{cleveref}
+
+\newtheorem{remark}{Remark}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\numberwithin{equation}{section}
+
+\definecolor{orange}{HTML}{E69F00}
+\definecolor{skyblue}{HTML}{56B4E9}
+\definecolor{bluishgreen}{HTML}{009E73}
+\definecolor{yellow}{HTML}{F0E442}
+\definecolor{blue}{HTML}{0072B2}
+\definecolor{vermillion}{HTML}{D55E00}
+\definecolor{reddishpurple}{HTML}{CC79A7}
+
+\usetikzlibrary{calc, positioning, shapes.geometric, arrows.meta}
+\tikzstyle{line} = [thin]
+\tikzstyle{arrow} = [
+    thin,
+    -Stealth
+]
+\tikzstyle{start} = [
+    rectangle,
+    rounded corners,
+    minimum height=5mm,
+    draw=black,
+    fill=bluishgreen!40,
+    align=center,
+    font=\tiny
+]
+\tikzstyle{stop} = [
+    rectangle,
+    rounded corners,
+    minimum height=5mm,
+    draw=black,
+    fill=reddishpurple!60,
+    align=center,
+    font=\tiny
+]
+\tikzstyle{process} = [
+    rectangle,
+    minimum height=5mm,
+    draw=black,
+    fill=vermillion!40,
+    align=center,
+    font=\tiny
+]
+\tikzstyle{decision} = [
+    ellipse,
+    draw=black,
+    fill=yellow!50,
+    align=center,
+    font=\tiny
+]
